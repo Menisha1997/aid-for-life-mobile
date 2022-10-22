@@ -1,26 +1,22 @@
-import 'package:ambulance_app_v1/views/profile/profile_page.dart';
+import 'package:ambulance_app_v1/views/user/ambulance_hospital/map_page.dart';
 import 'package:ambulance_app_v1/widgets/custom_paint_widget.dart';
 import 'package:flutter/material.dart';
-import '../disease/firstaid_page.dart';
-import 'phone_pad.dart';
-import '../blood_group_donor/blood_group_list.dart';
-import '../ambulance_hospital/map_page.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class AmbDriverHome extends StatefulWidget {
+  const AmbDriverHome({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  State<AmbDriverHome> createState() => _AmbDriverHomeState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _AmbDriverHomeState extends State<AmbDriverHome> {
   int _currentIndex = 0;
   final List<Widget> _children = [
     const MapPage(),
-    const PhonePad(),
-    const Firstaid(),
-    const BloodGroupList(),
-    const AccountScreen(),
+    const MapPage(),
+    const MapPage(),
+    const MapPage(),
+    const MapPage(),
   ];
 
   @override

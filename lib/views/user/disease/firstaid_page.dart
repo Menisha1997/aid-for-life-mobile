@@ -1,8 +1,9 @@
 import 'package:ambulance_app_v1/models/disease_model.dart';
-import 'package:ambulance_app_v1/views/disease/disease_info.dart';
+import 'package:ambulance_app_v1/services/api_service.dart';
 import 'package:ambulance_app_v1/widgets/custom_paint_widget.dart';
 import 'package:flutter/material.dart';
-import '../../services/api_service.dart';
+
+import 'disease_info.dart';
 
 class Firstaid extends StatefulWidget {
   const Firstaid({Key? key}) : super(key: key);

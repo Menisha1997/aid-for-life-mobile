@@ -1,14 +1,15 @@
 import 'package:ambulance_app_v1/const/app_image_const.dart';
 import 'package:ambulance_app_v1/const/app_size_const.dart';
+import 'package:ambulance_app_v1/global.dart' as global;
 import 'package:ambulance_app_v1/services/api_service.dart';
+import 'package:ambulance_app_v1/views/ambulance_driver/dashboard/amb_home_screen.dart';
 import 'package:ambulance_app_v1/views/auth/signup_screen.dart';
-import 'package:ambulance_app_v1/views/dashboard/home_page.dart';
+import 'package:ambulance_app_v1/views/user/dashboard/home_page.dart';
 import 'package:ambulance_app_v1/widgets/custom_button_widget.dart';
 import 'package:ambulance_app_v1/widgets/custom_paint_widget.dart';
 import 'package:ambulance_app_v1/widgets/custom_text_form_field_widget.dart';
 import 'package:ambulance_app_v1/widgets/progress_HUD.dart';
 import 'package:flutter/material.dart';
-import 'package:ambulance_app_v1/global.dart' as global;
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -128,8 +129,13 @@ class _SignInState extends State<SignIn> {
               content: Text("Welcome " + value.fullName.toString()),
             ),
           );
-          Navigator.of(context).pushReplacement(MaterialPageRoute(
-              builder: (BuildContext context) => const HomePage()));
+          if (value.userType == "ambulance") {
+            Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (BuildContext context) => const AmbDriverHome()));
+          } else {
+            Navigator.of(context).pushReplacement(MaterialPageRoute(
+                builder: (BuildContext context) => const HomePage()));
+          }
         } else {
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(

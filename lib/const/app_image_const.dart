@@ -3,6 +3,7 @@
 class AppImage {
   static String LOGO = "assets/images/logo.png";
   static String LOGIN_ICON = "assets/images/login-img.png";
+  static String USER_ICON = "assets/images/user.png";
   static String AMBULANCE_ICON = "assets/images/ambulance.png";
   static String HOSPITAL_ICON = "assets/images/hospital.png";
 }

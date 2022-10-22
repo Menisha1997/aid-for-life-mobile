@@ -8,7 +8,7 @@ import 'package:http/http.dart' as http;
 import '../models/app_user_model.dart';
 
 class APIService {
-  static const baseUrl = "http://192.168.8.101:80/api";
+  static const baseUrl = "http://192.168.8.100:80/api";
 
   Future<AppUser?> login(Map<String, String> body) async {
     String url = "$baseUrl/AppUserLogin";
@@ -123,6 +123,21 @@ class APIService {
       return parsed
           .map<AmbulanceHospital>((json) => AmbulanceHospital.fromJson(json))
           .toList();
+    } else {
+      json.decode(response.body);
+      throw Exception('Failed to load data!');
+    }
+  }
+
+  Future<AmbulanceHospital> getAmbulance(int ambulanceId) async {
+    String url = "$baseUrl/Ambulance/$ambulanceId";
+    Uri uri = Uri.parse(url);
+
+    final response = await http.get(uri);
+    if (response.statusCode == 200 || response.statusCode == 404) {
+      return AmbulanceHospital.fromJson(
+        json.decode(response.body),
+      );
     } else {
       json.decode(response.body);
       throw Exception('Failed to load data!');

@@ -1,14 +1,14 @@
 import 'package:ambulance_app_v1/const/app_image_const.dart';
 import 'package:ambulance_app_v1/const/app_size_const.dart';
+import 'package:ambulance_app_v1/global.dart' as global;
 import 'package:ambulance_app_v1/models/app_user_model.dart';
 import 'package:ambulance_app_v1/services/api_service.dart';
-import 'package:ambulance_app_v1/views/auth/signin_screen.dart';
-import 'package:ambulance_app_v1/views/dashboard/home_page.dart';
+import 'package:ambulance_app_v1/views/user/dashboard/home_page.dart';
 import 'package:ambulance_app_v1/widgets/custom_button_widget.dart';
 import 'package:ambulance_app_v1/widgets/custom_paint_widget.dart';
 import 'package:ambulance_app_v1/widgets/custom_text_form_field_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:ambulance_app_v1/global.dart' as global;
+
 import '../../widgets/progress_HUD.dart';
 
 class SignUp extends StatefulWidget {

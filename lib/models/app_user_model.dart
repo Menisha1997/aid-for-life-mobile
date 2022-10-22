@@ -9,6 +9,9 @@ class AppUser {
     this.gender,
     this.bloodGroup,
     this.id,
+    this.ambulanceId,
+    this.hospitalId,
+    this.userType,
   });
 
   String? fullName;
@@ -19,6 +22,9 @@ class AppUser {
   String? dateOfBirth;
   String? gender;
   String? bloodGroup;
+  String? userType;
+  String? ambulanceId;
+  String? hospitalId;
 
   int? id;
 
@@ -32,6 +38,9 @@ class AppUser {
         gender: json["gender"],
         bloodGroup: json["bloodGroup"],
         id: json["id"],
+        ambulanceId: json["ambulanceId"],
+        hospitalId: json["hospitalId"],
+        userType: json["userType"],
       );
 
   Map<String, String?> toJson() => {

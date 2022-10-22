@@ -3,9 +3,9 @@ import 'package:ambulance_app_v1/models/app_user_model.dart';
 import 'package:ambulance_app_v1/services/api_service.dart';
 import 'package:ambulance_app_v1/widgets/custom_button_widget.dart';
 import 'package:ambulance_app_v1/widgets/custom_text_form_field_widget.dart';
+import 'package:ambulance_app_v1/widgets/progress_HUD.dart';
 import 'package:flutter/material.dart';
 import 'package:ambulance_app_v1/global.dart' as global;
-import '../../widgets/progress_HUD.dart';
 
 class EditProfile extends StatefulWidget {
   const EditProfile({Key? key, required this.appUserData}) : super(key: key);

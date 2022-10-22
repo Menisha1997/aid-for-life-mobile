@@ -1,13 +1,14 @@
+import 'dart:async';
+
 import 'package:ambulance_app_v1/const/app_image_const.dart';
+import 'package:ambulance_app_v1/models/ambulance_hospital_model.dart';
 import 'package:ambulance_app_v1/services/api_service.dart';
+import 'package:ambulance_app_v1/views/user/job_requests/job_request_make.dart';
 import 'package:ambulance_app_v1/widgets/progress_HUD.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'dart:async';
-
-import '../../models/ambulance_hospital_model.dart';
 
 class MapPage extends StatefulWidget {
   const MapPage({Key? key}) : super(key: key);
@@ -198,6 +199,15 @@ class _MapPageState extends State<MapPage> {
                                 },
                                 icon: const Icon(Icons.call),
                                 label: const Text("Call")),
+                            ElevatedButton.icon(
+                                style: ElevatedButton.styleFrom(
+                                  primary: Colors.green,
+                                ),
+                                onPressed: () {
+                                  makeRequest(dataModel);
+                                },
+                                icon: const Icon(Icons.request_page),
+                                label: const Text("Request")),
                           ],
                         );
                       });
@@ -224,5 +234,14 @@ class _MapPageState extends State<MapPage> {
     controller.animateCamera(CameraUpdate.newLatLngZoom(
         LatLng(_currentPosition.latitude, _currentPosition.longitude),
         14.4746));
+  }
+
+  makeRequest(AmbulanceHospital ambulanceHospital) {
+    return Navigator.push(
+        context,
+        MaterialPageRoute(
+            builder: (context) => MakeJobRequest(
+                  ambulanceHospital: ambulanceHospital,
+                )));
   }
 }

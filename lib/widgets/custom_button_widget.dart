@@ -36,3 +36,40 @@ class _CustomButtonState extends State<CustomButton> {
     );
   }
 }
+
+class CustomMegaButton extends StatelessWidget {
+  const CustomMegaButton(
+      {Key? key,
+      required this.onPressed,
+      required this.label,
+      required this.color,
+      required this.labelColor})
+      : super(key: key);
+
+  final VoidCallback? onPressed;
+  final String label;
+  final Color color;
+  final Color labelColor;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      onPressed: onPressed,
+      style: ElevatedButton.styleFrom(
+          minimumSize: const Size(300, 50),
+          maximumSize: const Size(300, 50),
+          primary: color,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(12))),
+      child: Container(
+        alignment: Alignment.center,
+        child: Text(
+          label,
+          style: Theme.of(context).textTheme.headline6?.copyWith(
+                color: labelColor,
+              ),
+        ),
+      ),
+    );
+  }
+}
